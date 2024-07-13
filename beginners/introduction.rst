@@ -48,7 +48,7 @@ A. To use a Python API for SMT, first create a virtual environment.
       python3 -m pip install z3-solver
 
    |cvcv| is distributed under the BSD 3-clause license. Some features, however,
-   such as its finite field solver (see [finite-fields]_), are only available in an
+   such as its finite field solver (see :ref:`finite-fields`), are only available in an
    extended version of |cvcv| distributed under the GNU General Public License
    (GPL). [#]_
    Since GPL is a problem for some users, the GPL version is not built

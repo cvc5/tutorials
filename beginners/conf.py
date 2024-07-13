@@ -6,7 +6,7 @@
 import sys
 
 # add path to enable extensions
-sys.path.insert(0, '/Users/clarkbarrett/tools/cvc5-main/tutorials/beginners/ext/')
+sys.path.insert(0, '/Users/clarkbarrett/github/tutorials/beginners/ext/')
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
@@ -18,8 +18,7 @@ author = 'Clark Barrett, Cesare Tinelli, Haniel Barbosa, Aina Niemetz, Mathias P
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = ['sphinx_tabs.tabs','examples']
-
+extensions = ['sphinx_tabs.tabs','examples','sphinx_copybutton']
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
@@ -34,7 +33,7 @@ html_theme = 'sphinx_rtd_theme'
 html_theme_options = {
     'navigation_depth': 5
 }
-html_static_path = ['/Users/clarkbarrett/tools/cvc5-main/tutorials/beginners/_static/']
+html_static_path = ['/Users/clarkbarrett/github/tutorials/beginners/_static/']
 html_css_files = ['custom.css']
 html_show_sourcelink = False
 
@@ -57,6 +56,11 @@ examples_types = {
                 'lang': 'python',
                 'group': 'py'
         },
+        '^<solutions>.*\.py$': {
+                'title': 'Python',
+                'lang': 'python',
+                'group': 'py'
+        },
         '\.smt2$': {
                 'title': 'SMT-LIBv2',
                 'lang': 'smtlib',
@@ -67,8 +71,13 @@ examples_types = {
 examples_file_patterns = {
         '^<examples>(.*)': {
                 'local': '/examples{}',
-                'url': 'https://github.com/cvc5/cvc5/tree/main/tutorials/beginners/examples{}',
+                'url': 'https://github.com/cvc5/tutorials/tree/main/beginners/examples{}',
                 'urlname': 'examples{}',
+        },
+        '^<solutions>(.*)': {
+                'local': '/solutions{}',
+                'url': 'https://github.com/cvc5/tutorials/tree/main/beginners/solutions{}',
+                'urlname': 'solutions{}',
         },
 }
 

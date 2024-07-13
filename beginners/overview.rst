@@ -1,6 +1,3 @@
-.. TODO: Links in api-examples are broken
-.. TODO: Add button to copy code in api-examples
-
 .. include:: macros.rst
    
 .. _overview:

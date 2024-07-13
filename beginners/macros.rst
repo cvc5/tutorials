@@ -30,30 +30,30 @@
 
 .. Logics
 
-.. TODO: Add links to SMT-LIB logic files.
+.. TODO: Some logics are missing from SMT-LIB website
 
 .. |ALL| replace:: :smt:`ALL`
 .. |QF| replace:: :smt:`QF`
 .. |UF| replace:: :smt:`UF`
-.. |QF_UF| replace:: :smt:`QF_UF`
-.. |QF_IDL| replace:: :smt:`QF_IDL`
-.. |QF_RDL| replace:: :smt:`QF_RDL`
-.. |QF_LIA| replace:: :smt:`QF_LIA`
-.. |QF_LRA| replace:: :smt:`QF_LRA`
+.. |QF_UF| replace:: `QF_UF <https://smt-lib.org/logics-all.shtml#QF_UF>`__
+.. |QF_IDL| replace:: `QF_IDL <https://smt-lib.org/logics-all.shtml#QF_IDL>`__
+.. |QF_RDL| replace:: `QF_RDL <https://smt-lib.org/logics-all.shtml#QF_RDL>`__
+.. |QF_LIA| replace:: `QF_LIA <https://smt-lib.org/logics-all.shtml#QF_LIA>`__
+.. |QF_LRA| replace:: `QF_LRA <https://smt-lib.org/logics-all.shtml#QF_LRA>`__
 .. |QF_LIRA| replace:: :smt:`QF_LIRA`
-.. |QF_NIA| replace:: :smt:`QF_NIA`
-.. |QF_NRA| replace:: :smt:`QF_NRA`
-.. |QF_AX| replace:: :smt:`QF_AX`
-.. |QF_ALIA| replace:: :smt:`QF_ALIA`
-.. |QF_BV| replace:: :smt:`QF_BV`
+.. |QF_NIA| replace:: `QF_NIA <https://smt-lib.org/logics-all.shtml#QF_NIA>`__
+.. |QF_NRA| replace:: `QF_NRA <https://smt-lib.org/logics-all.shtml#QF_NRA>`__
+.. |QF_AX| replace:: `QF_AX <https://smt-lib.org/logics-all.shtml#QF_AX>`__
+.. |QF_ALIA| replace:: :smt:`QF_DT`
+.. |QF_BV| replace:: `QF_BV <https://smt-lib.org/logics-all.shtml#QF_BV>`__
 .. |QF_DT| replace:: :smt:`QF_DT`
 .. |QF_DTLIA| replace:: :smt:`QF_DTLIA`
 .. |QF_FP| replace:: :smt:`QF_FP`
 .. |QF_S| replace:: :smt:`QF_S`
 .. |QF_SLIA| replace:: :smt:`QF_SLIA`
-.. |LIA| replace:: :smt:`LIA`
-.. |LRA| replace:: :smt:`LRA`
-.. |NRA| replace:: :smt:`NRA`
+.. |LIA| replace:: `LIA <https://smt-lib.org/logics-all.shtml#LIA>`__
+.. |LRA| replace:: `LRA <https://smt-lib.org/logics-all.shtml#LRA>`__
+.. |NRA| replace:: `NRA <https://smt-lib.org/logics-all.shtml#NRA>`__
 .. |QF_FF| replace:: :smt:`QF_FF`
 .. |QF_FS| replace:: :smt:`QF_FS`
                      
