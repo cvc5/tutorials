@@ -1,0 +1,44 @@
+.. _floating-point:
+
+Floating-Point Arithmetic
+-------------------------
+
+The most common representation of real numbers in hardware and software is
+the binary floating-point number representation system as defined by the
+IEEE Standard 754-2019 for Floating-Point Arithmetic [R27]_.
+Floating-point numbers are encoded as a triple of bit-vectors: the fractional
+part (the significand), the exponent  (a power of 10 by which the
+significand is multiplied), and a sign bit.
+This representation is of limited range and precision, and thus, the domain of
+floating-point numbers is finite.  It also includes special values for
+representing errors as not-a-number and for plus and minus infinity.
+In SMT-LIB, the IEEE-754 standard is formalized as the theory of floating-point
+arithmetic [R11]_.  The quantifier-free logic name is |QF_FP|.
+
+  _`Example 11`. The SMT-LIB standard supports a *fused multiplication and
+  addition* operator :smt:`fp.fma`.  Given three single precision
+  floating-point numbers :math:`a`, :math:`b`, and :math:`c`, show that the
+  floating-point fused multiplication and addition of :math:`a`, :math:`b`, and
+  :math:`c` is different from first multiplying :math:`a` and :math:`b` and
+  then adding :math:`c`.
+
+.. api-examples::
+   <examples>/fp.smt2
+   <examples>/fp.py
+
+The Python output from |cvcv| is as follows.
+
+.. code-block:: python
+
+   [a = -1.3333333730697632*(2**-1), b = -1.9999998807907104*(2**-1),
+    c = -1.9999998807907104*(2**-1), rm = RTP()]
+   fpFMA(rm, a, b, c) = -1.333333134651184*(2**-2)
+   fpAdd(rm, fpMul(rm, a, b),c) = -1.3333330154418945*(2**-2)
+
+..
+
+  _`Exercise 9`. Modify the solution to `Example 11`_ to show that
+  floating-point addition is not associative, i.e., :math:`a + (b + c) \not=
+  (a + b) + c`.
+
+  :ref:`Solution to Exercise 9 <Solution to Exercise 9>`

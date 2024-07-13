@@ -1,0 +1,62 @@
+digraph proof {
+  rankdir="BT";
+  node [shape=record];
+  comment="{\"letMap\" : {\"let1\" : \"(Mortal Socrates)\", \"let2\" : \"(not let1)\", \"let3\" : \"(Human Socrates)\", \"let4\" : \"(forall ((x S)) (=\> (Human x) (Mortal x)))\", \"let5\" : \"(not let3)\", \"let6\" : \"(or let5 let1)\", \"let7\" : \"(not let6)\", \"let8\" : \"(forall ((x S)) (or (not (Human x)) (Mortal x)))\", \"let9\" : \"(not (and let4 let3 let2))\"}}";
+  1 [ label = "{let9|SCOPE :args [ let4, let3, let2 ]}", comment = "{\"subProofQty\":16}" ];
+  2 [ label = "{false|CHAIN_RESOLUTION :args [ (true false), (let6 let8) ]}", comment = "{\"subProofQty\":15}" ];
+  3 [ label = "{(or (not let8) let6)|IMPLIES_ELIM}", comment = "{\"subProofQty\":6}" ];
+  4 [ label = "{(=\> let8 let6)|SCOPE :args [ let8 ]}", comment = "{\"subProofQty\":5}" ];
+  5 [ label = "{let6|INSTANTIATE :args [ (Socrates), 151 ]}", comment = "{\"subProofQty\":4}" ];
+  6 [ label = "{let8|EQ_RESOLVE}", comment = "{\"subProofQty\":3}" ];
+  7 [ label = "{let4|ASSUME}", comment = "{\"subProofQty\":1}" ];
+  7 -> 6;
+  8 [ label = "{(= let4 let8)|TRUST_THEORY_REWRITE :args [ QUANTIFIERS ]}", comment = "{\"subProofQty\":1}" ];
+  8 -> 6;
+  6 -> 5;
+  5 -> 4;
+  4 -> 3;
+  3 -> 2;
+  9 [ label = "{let7|CHAIN_RESOLUTION :args [ (true false), (let1 let3) ]}", comment = "{\"subProofQty\":5}" ];
+  10 [ label = "{(or let1 let5 let7)|REORDERING}", comment = "{\"subProofQty\":2}" ];
+  11 [ label = "{(or let7 let5 let1)|CNF_OR_POS :args [ let6 ]}", comment = "{\"subProofQty\":1}" ];
+  11 -> 10;
+  10 -> 9;
+  12 [ label = "{let2|ASSUME}", comment = "{\"subProofQty\":1}" ];
+  12 -> 9;
+  13 [ label = "{let3|ASSUME}", comment = "{\"subProofQty\":1}" ];
+  13 -> 9;
+  9 -> 2;
+  14 [ label = "{let8|EQ_RESOLVE}", comment = "{\"subProofQty\":3}" ];
+  15 [ label = "{let4|ASSUME}", comment = "{\"subProofQty\":1}" ];
+  15 -> 14;
+  16 [ label = "{(= let4 let8)|TRUST_THEORY_REWRITE :args [ QUANTIFIERS ]}", comment = "{\"subProofQty\":1}" ];
+  16 -> 14;
+  14 -> 2;
+  2 -> 1;
+
+  subgraph cluster_SAT {
+    label="SAT"
+    bgcolor="purple"
+
+  };
+  subgraph cluster_CNF {
+    label="CNF"
+    bgcolor="yellow"
+
+  };
+  subgraph cluster_TL {
+    label="TL"
+    bgcolor="green"
+    1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16
+  };
+  subgraph cluster_PP {
+    label="PP"
+    bgcolor="brown"
+
+  };
+  subgraph cluster_IN {
+    label="IN"
+    bgcolor="blue"
+
+  };
+}

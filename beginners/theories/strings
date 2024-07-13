@@ -1,0 +1,36 @@
+.. _strings:
+
+Strings
+-------
+
+It is often necessary to reason about string data when reasoning about
+programs.  Reasoning about bit-vector representations of strings has the
+disadvantage that it requires fixing the string length up front.  Also, the
+theory of bit-vectors does not include many of the utility functions for
+strings that exist in string libraries in programming languages.  The SMT-LIB
+theory of strings provides support for variable-length strings and a large set
+of string operations.  The quantifier-free logic name is |QF_S|.  Typically,
+though, we use |QF_SLIA| since we need arithmetic to reason about string
+lengths.
+
+  _`Example 12`. Given two strings, :python:`x1` and :python:`x2`, each
+  consisting of no more than two characters, is it possible to build the string
+  :python:`"abbaabb"` using only 3 string concatenations (where each
+  concatenation may use any previous result including :python:`x1` and
+  :python:`x2`)?
+
+We can solve this problem by building a *circuit* of string concatenations
+and using nondeterministic choice to pick the inputs for each concatenation.
+
+.. api-examples::
+   <examples>/strings.smt2
+   <examples>/strings.py
+
+..
+
+  _`Exercise 10`.  Use SMT to determine how many concatenations are needed to
+  get :python:`"abbaabb"` if :python:`x1` and :python:`x2` are both restricted
+  to have a length of 1.
+
+  :ref:`Solution to Exercise 10 <Solution to Exercise 10>`
+  

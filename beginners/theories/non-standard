@@ -1,0 +1,126 @@
+.. _non-standard:
+             
+Non-standard Theories
+---------------------
+
+|cvcv| and |ziii| support several theories that are not (yet) part of the
+SMT-LIB standard.  We discuss a few of them briefly here, focusing on those
+supported by |cvcv|.  More documentation about non-standard theories, including
+reference tables describing the supported operators can be found on the |cvcv|
+`website <http://cvc5.github.io>`_.
+
+.. _sequences:
+
+Sequences
+^^^^^^^^^
+
+The theory of *sequences* brings together features of the theories of arrays
+and strings.  Similar to arrays, sequences are parameterized by the sort of
+their elements.  So we can declare a sequence of integers, a sequence of
+bit-vectors, and so on.  Like strings, sequences have a variable but finite
+length and can be concatenated together.  The sequence theory is enabled
+whenever the string theory is enabled (e.g., by using the logic name |QF_S| or
+|QF_SLIA|.  Note that |ziii| also supports a theory of sequences that is mostly
+(but not entirely) compatible with the |cvcv| version.
+
+  _`Example 13`. Let :smt:`x` be a sequence of integers.  Find a value for
+  :smt:`x` such that the first and last elements sum to 9, and if we
+  concatenate :smt:`x` with itself, then :math:`(3,4,5)` appears as a
+  subsequence.
+
+.. api-examples::
+  <examples>/sequences.smt2
+  <examples>/sequences.py
+
+..
+
+  _`Exercise 11`. Show that it's not possible to have sequences :smt:`x`,
+  :smt:`y`, and :smt:`z` such that :smt:`x` is a proper prefix of :smt:`y`,
+  :smt:`y` is a proper prefix of :smt:`z`, and :smt:`z` is a proper prefix of
+  :smt:`x`.
+
+  :ref:`Solution to Exercise 11 <Solution to Exercise 11>`
+       
+.. _finite-fields:
+
+Finite Fields
+^^^^^^^^^^^^^
+
+|cvcv| can reason about constraints over finite fields of order :math:`p`,
+where :math:`p` is any prime.  It relies on the fact that a field of order
+:math:`p` is isomorphic to the integers modulo :math:`p`.  The quantifier-free
+logic name for finite fields is |QF_FF|.  At the time of writing, this
+theory is not supported by other SMT solvers.
+
+  _`Example 14`.  In a finite field of order 13, find two elements such that
+  their sum and product are both equal to the multiplicative identity in the
+  field.
+
+Running this example requires a GPL build of |cvcv|, as explained in :ref:`introduction`.
+
+.. api-examples::
+
+   <examples>/fields.smt2
+   <examples>/fields.py
+
+..
+
+  _`Exercise 12`.  In a finite field of order 13, find an element such that if
+  you square it twice you get the multiplicative identity.
+
+  :ref:`Solution to Exercise 12 <Solution to Exercise 12>`
+
+
+.. _finite-sets:
+
+Finite Sets
+^^^^^^^^^^^
+
+|cvcv| has support for the theory of finite sets.  This theory supports basic
+set operations like membership, union, and intersection, as well as constraints
+on a set's cardinality.  The quantifier-free logic name is |QF_FS|.  At
+the time of writing, this theory is not supported by other SMT solvers.
+
+  _`Example 15`. Verify that union distributes over intersection.
+
+.. api-examples::
+  <examples>/sets.smt2
+  <examples>/sets.py
+
+..
+
+  _`Exercise 13`. Does set difference distribute over intersection?  If not,
+  find a counterexample.
+
+  :ref:`Solution to Exercise 13 <Solution to Exercise 13>`
+
+.. _theory-combinations:
+
+Combinations of Theories
+------------------------
+
+So far, we have mostly seen examples of how to pose queries that involve a
+single theory.  Part of the appeal of SMT solvers is their ability to mix
+reasoning about different theories.  This can be done in a natural way.  Any
+well-sorted formula is allowed, and all sort constructors can take any other
+sort as an argument.
+
+One slight complication is the question of how to specify the logic name.  It
+is always safe to use |ALL| as the logic name, though as mentioned above,
+it may be more efficient to give a more precise logic name.  When mixing
+theories, |cvcv| allows any logic name that follows the following rules.
+First, the logic name must start with the prefix :smt:`QF_` if the intent is to
+limit reasoning to quantifier-free formulas.  The rest of the logic name can
+include any of the following components, in any order: :math:`(i)` :smt:`A` for
+arrays; :math:`(ii)` :smt:`UF` for uninterpreted functions; :math:`(iii)`
+:smt:`BV` for bit-vectors; (iv) :smt:`FP` for floating-point numbers;
+:math:`(v)` :smt:`DT` for datatypes; (vi) :smt:`S` for strings and sequences;
+:math:`(vii)` either :smt:`IDL`, :smt:`RDL`, :smt:`LIA`, :smt:`LRA`,
+:smt:`LIRA`, :smt:`NIA`, :smt:`NRA`, or :smt:`NIRA` for arithmetic;
+:math:`(viii)` :smt:`FF` for finite fields; and :math:`(ix)` :smt:`FS` for
+finite sets.  Thus, for example, :smt:`QF_AUFDTBVLRA` allows formulas that are
+quantifier-free and mix arrays, uninterpreted functions, datatypes,
+bit-vectors, and linear real arithmetic.
+`Example 10`_, `Example 12`_, and `Example 13`_ illustrate
+combinations of theories.
+

@@ -1,0 +1,62 @@
+.. _arrays:
+
+Arrays
+------
+
+Consider the following Python function which swaps two elements in a dictionary.
+
+.. code-block:: python
+
+  def swap(a,i,j):
+    tmp = a[i]
+    a[i] = a[j]
+    a[j] = tmp
+
+If :python:`a[i]` and :python:`a[j]` happen to be equal, the dictionary
+:python:`a` is unchanged by the function.  To prove this fact, we could try
+modeling dictionaries as uninterpreted functions.  However, asserting that two
+functions are equal is not allowed in first-order logic.  Alternatively, we
+could use a quantifier to assert that two functions return the same output when
+given the same input, for any input.  However, we would like to avoid
+quantifiers when possible, as their use puts us in an undecidable logic.
+
+Fortunately, the SMT-LIB standard includes a theory of arrays [R30]_, which can
+help in this situation.  The theory is perhaps more accurately viewed as a
+theory of mutable maps and is parameterized by two sorts, one for the index
+(corresponding to the key type of the dictionary) and one for the elements
+(values in the dictionary).  For example, the SMT-LIB sort :smt:`(Array Int
+Real)` represents arrays indexed by integers and containing reals.  Note that
+SMT arrays are always total, in the sense that they have an element for every
+value in the index sort.  In particular, an array indexed by :smt:`Int` is
+conceptually infinite.
+
+The theory has two operators: :smt:`select`, which takes an array and an index
+and returns the element at that index, and :smt:`store`, which takes an array
+:math:`a`, an index :math:`i`, and an element :math:`e`, and returns a new
+array that is the result of updating :math:`a` with the element :math:`e` at
+index :math:`i`.
+
+Typically, the theory of arrays is used in combination with other theories that
+make sense for the index and element sorts.  For example, the logic
+|QF_ALIA| allows quantifier-free formulas with variables that range over
+integers and arrays of integers.  The simplest logic with arrays is
+|QF_AX|, in which all the sorts must be uninterpreted.
+
+In the example below, we encode the above problem using the array theory.
+
+  _`Example 8`.  For the Python program above, show that, for arbitrary index
+  and element sorts, if :python:`a[i]` and :python:`a[j]` are equal, then so
+  are :python:`a` and :python:`swap(a,i,j)`.
+
+.. api-examples::
+   <examples>/arrays.smt2
+   <examples>/arrays.py
+
+..
+
+  _`Exercise 6`.  Another property of :python:`swap` that we can prove is that
+  if :python:`a[i]` and :python:`a[j]` are distinct, then :python:`swap` would
+  change :python:`a`.  Modify the solution for `Example 8`_ to prove this
+  property.
+
+  :ref:`Solution to Exercise 6 <Solution to Exercise 6>`

@@ -1,0 +1,36 @@
+.. _datatypes:
+
+Datatypes
+---------
+
+Built into the SMT-LIB language is a mechanism for defining *(algebraic)
+datatypes*.  Datatypes are highly useful in applications for reasoning
+about data structures like records, lists, and trees [R7]_.  The
+quantifier-free logic name is |QF_DT|.
+
+  _`Example 10`.  Model a binary tree containing integer data.  Find trees
+  :math:`x` and :math:`y` such that :math:`(i)` the left subtree of :math:`x`
+  is the same as the right subtree of :math:`y` and :math:`(ii)` the data
+  stored in :math:`x` is greater than :math:`100`.
+
+Note that we need both datatypes and integer arithmetic for this example.
+|cvcv| supports the logic name |QF_DTLIA|, but |ziii| does not.
+Fortunately, we can always use |ALL| for the logic if a
+more specific logic is not available.
+
+.. api-examples::
+   <examples>/datatypes.smt2
+   <examples>/datatypes.py
+
+The Python output from |cvcv| is:
+
+.. code-block:: python
+                
+   [ x = node(101, nil, node(0, nil, nil)), y = node(0, node(0, nil, node(0, nil, nil)), nil)]
+
+..
+
+  _`Exercise 8`.  Show that a tree cannot be equal to its own left subtree.
+
+  :ref:`Solution to Exercise 8 <Solution to Exercise 8>`
+  

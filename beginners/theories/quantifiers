@@ -1,0 +1,48 @@
+.. _quantifiers:
+
+Quantifiers
+-----------
+
+We saw an example of quantified formulas in :ref:`Example 3 <Example 3>`.
+Quantifiers can be enabled in SMT solvers by dropping |QF| from the logic name.
+However, enabling quantifiers typically increases the complexity of the
+decision problem significantly.  In fact, solving |UF| problems is equivalent
+to solving the decision problem for first-order logic, Hilbert's original
+Entscheidungsproblem, which is undecidable.  And although |LIA|, |LRA|, and
+|NRA| are decidable, the decision procedures are expensive.  For these reasons,
+SMT solvers mostly handle quantifiers by attempting to find quantifier
+*instantiations* that, together with the other quantifier-free assertions, are
+unsatisfiable.  For problems that are expected to be unsatisfiable, this
+approach can be quite effective.  Moreover, by using different instantiation
+techniques and effort levels, a wide variety of problems can be solved.
+
+|cvcv| supports several techniques for handling quantified formulas, which can
+vary based on the logic.  By default, |cvcv| limits its effort so that it
+usually returns quickly with an answer of either :smt:`unsat` or
+:smt:`unknown`.  For logics that include uninterpreted functions, it uses a
+combination of E-matching [R31]_ and conflict-based instantiation [R40]_.  In
+case the user wants to invest more effort, these techniques can be supplemented
+with techniques such as enumerative instantiation [R38]_ (option
+:smt:`enum-inst`).  For logics that admit quantifier elimination (e.g.,
+quantified linear arithmetic or bit-vectors), it uses counterexample-guided
+quantifier instantiation [R34]_, [R39]_, which is a complete procedure for
+these logics.
+
+By default, |cvcv| will generally not attempt to determine that an input with
+quantified formulas is satisfiable.  However, more advanced techniques can be
+used to answer :smt:`sat` in the presence of quantified formulas, including
+finite model finding [R37]_ (option :smt:`finite-model-find`), model-based
+quantifier instantiation [R23]_ (option :smt:`mbqi`), and syntax-guided
+quantifier instantiation [R35]_ (option :smt:`sygus-inst`).
+
+In general, to set options that are not on by default, we can use the
+:python:`setOption` solver method in Python, as shown below.
+
+.. code-block:: python
+
+   from cvc5.pythonic import *
+   s = SolverFor('UF')
+   s.setOption('enum-inst', True)
+   s.setOption('finite-model-find', True)
+   s.setOption('mbqi', True)
+   s.setOption('sygus-inst', True)

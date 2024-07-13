@@ -1,0 +1,83 @@
+.. _core:             
+             
+Core Theory and Uninterpreted Symbols
+-------------------------------------
+
+The SMT-LIB standard defines a *core theory* which consists of a core signature
+with a fixed interpretation that is always present, regardless of which other
+theories are being used.  The core theory defines the Boolean sort :smt:`Bool`
+(:python:`BoolSort()` in Python), the Boolean theory constants :smt:`true` and
+:smt:`false` (:python:`BoolVal(True)` and :python:`BoolVal(False)` in Python),
+and the operators :smt:`=`, :smt:`not`, :smt:`and`, :smt:`or`, :smt:`xor`, and
+:smt:`=>` (:python:`==`, :python:`Not`, :python:`And`, :python:`Or`,
+:python:`Xor`, and :python:`Implies` in Python), all with the usual meanings.
+The equality symbol :smt:`=` is *polymorphic*: it can be applied to two terms
+of the same sort, for any predefined or user-declared sort.  There are also two
+more polymorphic operators that require a bit more explanation.  The
+:smt:`distinct` (:python:`Distinct`) operator takes two or more arguments of
+the same sort and returns :smt:`true` exactly when all the arguments have
+pairwise distinct values.  The :smt:`ite` (:python:`If`) operator takes three
+arguments, the first of which must be of Boolean sort.  The other two arguments
+can have any sort as long as it is the same for both.  The meaning of the
+:smt:`ite` operator is the second argument when the first argument is true, and
+the third argument otherwise.
+
+The simplest logic that builds on the core theory is |QF_UF|, short for
+"quantifier-free uninterpreted functions."  This logic disallows quantifiers
+and does not define any new symbols beyond those in the core theory.  However,
+it allows the user to extend the signature with new sorts and symbols.  The SMT
+solver is allowed to interpret these symbols in any way it chooses.  This is
+why they are referred to as uninterpreted: the solver does not impose any
+restrictions on the interpretation (besides the declared arity and rank).  The
+following example illustrates the use of uninterpreted symbols as well as the
+:python:`And` and :python:`Distinct` operators.
+
+  _`Example 4`. Let :math:`f` be a unary function from :math:`U` to :math:`U`,
+  for some set :math:`U`. Check that, whatever the meaning of :math:`f`, if
+  :math:`f(f(f(x)))=x` and :math:`f(f(f(f(f(x)))))=x`, then :math:`f(x)=x`.
+
+Solutions for this example are shown below.
+
+.. api-examples::
+   <examples>/ffff.smt2
+   <examples>/ffff.py
+
+We can derive :math:`f(x) = x` from the first assertion by performing a series of
+substitutions, and thus the problem is unsatisfiable.
+Now, we present a simple example that illustrates the :smt:`ite` operator.  It
+also shows that in Python, we can use :python:`!=` instead of
+:python:`Distinct` to assert that two terms are distinct.
+
+  _`Example 5`. Suppose we know that :math:`x` is either equal to :math:`y` or
+  :math:`z`, depending on the value of the Boolean :math:`b`.  Suppose we
+  further know that :math:`w` is equal to one of :math:`y` or :math:`z`.  Does
+  it follow that :math:`x` equals :math:`w`?
+
+Solutions are shown below.
+
+.. api-examples::
+   <examples>/xyzwite.smt2
+   <examples>/xyzwite.py
+
+The Python output when using |cvcv| is as follows.
+
+.. code-block:: python
+
+   b : True
+   w : (as @U_0 U)
+   x : (as @U_1 U)
+   y : (as @U_1 U)
+   z : (as @U_0 U)
+
+The result tells us that it does *not* follow that :math:`x=w`.  The model
+gives us a *counterexample* to that claim.  Because the sort :smt:`U` is
+uninterpreted, the model returned by |cvcv| must choose an interpretation for
+it.  Here, |cvcv| tells us that it is interpreting :smt:`U` as a set with two
+elements, named :smt:`@U_0` and :smt:`@U_1`.  The model then specifies that
+:smt:`x` and :smt:`y` have one value and :smt:`z` and :smt:`w` have the other,
+so :smt:`x` is not equal to :smt:`w`.
+
+  _`Exercise 3`. Modify `Example 4`_ to make it satisfiable and `Example 5`_ to make it unsatisfiable.
+
+  :ref:`Solution to Exercise 3 <Solution to Exercise 3>`
+  

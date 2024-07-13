@@ -1,0 +1,52 @@
+.. _bitvectors:
+
+Bit-vectors
+-----------
+
+.. |xrs| replace:: :math:`\mathit{xrs}`
+.. |bvashr| replace:: :math:`\mathop{>\kern-.3em>}_s`
+.. |bvand| replace:: :math:`\mathrel{\&}`
+.. |bvshl| replace:: :math:`\mathop{<\kern-.3em<}`
+.. |abs| replace:: :math:`\mathit{abs}`
+
+Consider a simple implementation (written in a C-like syntax) for computing the
+absolute value of a 32-bit integer: :math:`abs(x) := x < 0 \;?\; {-x} :
+x`.  Instead of branching on :math:`x < 0`, it is possible to compute the
+absolute value of :math:`x` with three or four branch-free operations [R28]_ as
+follows.  Let |xrs| be an abbreviation for the arithmetic right shift
+(|bvashr|) of :math:`x` by :math:`31` bits.  Note that the result of
+this operation is either :math:`0` or :math:`-1` (all bits set to 1), depending
+on the most significant bit (MSB) of :math:`x`: if the MSB of :math:`x` is 0,
+|xrs| is 0; otherwise, |xrs| is -1.  Three branchless alternatives for
+computing the absolute value of :math:`x` are as follows.
+
+1. :math:`\mathit{abs}_1(x) := (x \oplus \mathit{xrs}) - \mathit{xrs}`
+2. :math:`\mathit{abs}_2(x) := (x + \mathit{xrs}) \oplus \mathit{xrs}`
+3. :math:`\mathit{abs}_3(x) := x - ((x \mathop{<\kern-.3em<} 1) \mathrel{\&} \mathit{xrs})`
+
+These branchless versions of :math:`\mathit{abs}(x)` make use of the 32-bit versions of the bit-wise operations
+exclusive or (:math:`\oplus`), bit-wise and (|bvand|), logical shift left
+(|bvshl|), and arithmetic shift right (|bvashr|).
+
+We can use an SMT solver to prove whether the branchless versions are
+equivalent to the original implementation.  Note that integers, as discussed in
+:ref:`arith`, are not a good fit, as it is difficult to model the bitwise
+operators using the arithmetic operators.  However, the SMT-LIB standard
+includes a theory of fixed-size bit-vectors, which defines the bit-precise
+semantics of fixed-size machine integers.  The name for the quantifier-free
+logic containing just this theory is |QF_BV|.  Using this logic, we can
+easily check the equivalence of the absolute value computations.
+
+  _`Example 9`. Show that the first branchless alternative :math:`\mathit{abs}_1` is
+  equivalent to |abs|.
+
+.. api-examples::
+   <examples>/branchless_abs.smt2
+   <examples>/branchless_abs.py
+
+..
+
+  _`Exercise 7`. Show that the second and third branchless alternatives
+  :math:`\mathit{abs}_2` and :math:`\mathit{abs}_3` are equivalent to |abs|.
+
+  :ref:`Solution to Exercise 7 <Solution to Exercise 7>`

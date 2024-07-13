@@ -1,0 +1,100 @@
+.. _arith:
+
+Arithmetic
+----------
+
+Though there are many tools available for arithmetic reasoning, SMT solvers are
+unique in their ability to reason efficiently about arbitrary Boolean
+combinations of arithmetic constraints, as well as to combine arithmetic
+reasoning with reasoning about other theories.  It is important to note that
+SMT solvers reason *precisely* about both integer and real arithmetic.  That
+is, they use arbitrary-precision arithmetic as opposed to machine integer or
+floating-point approximations.  This means that SMT solvers are not susceptible
+to the numerical errors that can arise, for instance, when using floating-point
+arithmetic to approximate real arithmetic.  It also means that for problems
+whose complexity lies mainly in the arithmetic reasoning, as opposed to Boolean
+reasoning, SMT solvers are typically slower than tools that use floating-point
+approximations.  The underlying algorithms for arithmetic reasoning in SMT
+solvers are based on standard techniques that have been adapted to the SMT
+context, such as the Simplex algorithm [R20]_ and Cylindrical Algebraic
+Decomposition [R2]_.
+
+There are a large number of logics to choose from within the arithmetic
+umbrella, with reasoning over reals generally more efficient than reasoning
+over integers, and reasoning over less expressive formulas generally more
+efficient than reasoning over more expressive ones.  We briefly discuss the
+various logics here.
+
+Difference Logic
+^^^^^^^^^^^^^^^^
+
+In *difference logic*, every arithmetic constraint must be of the form
+:math:`x - y \bowtie c` or :math:`x \bowtie c`, where :math:`\bowtie\ \in\{=,
+<, >, \le, \ge\}`, and :math:`c` is a numeric theory constant.  If :math:`x`
+and :math:`y` range over integers, we call it *integer difference logic*, and
+if they range over reals, we call it *real difference logic*.  Efficient
+algorithms exist for both [R17]_, [R36]_.  The names of these logics are
+|QF_IDL| and |QF_RDL|, respectively.  One application for difference logic is
+*job shop scheduling* [R41]_.
+
+  _`Example 6`. Suppose we have 3 jobs to complete on 2 machines.  Job 1
+  requires machine 1 for 10 minutes and then machine 2 for 5 minutes.  Job 2
+  requires machine 2 for 20 minutes and then machine 1 for 5 minutes.  And Job
+  3 requires machine 1 for 5 minutes and then machine 2 for 5 minutes.  Can all
+  jobs be completed in 30 minutes?
+
+To solve the problem, we create integer variables for the start times of each
+task within each job.  We assert that the start times are non-negative, each
+task within each job doesn't start until the previous task finishes, and tasks
+on each machine don't overlap.  Finally, we check that each task finishes on
+time.
+
+.. api-examples::
+   <examples>/diff.smt2
+   <examples>/diff.py
+
+..
+   
+  _`Exercise 4`. What is the minimum amount of time that it will take to
+  complete all of the jobs in `Example 6`_?
+
+  :ref:`Solution to Exercise 4 <Solution to Exercise 4>`
+  
+Linear Arithmetic
+^^^^^^^^^^^^^^^^^
+
+The logic of linear arithmetic allows arithmetic constraints to have any form
+that is equivalent to :math:`\sum c_i x_i + b \bowtie 0`, where :math:`b,c_i`
+are numeric theory constants and :math:`\bowtie\ \in\{=,<,>,\le,\ge\}`.  As
+before, there are both integer and real variants, |QF_LIA| and
+|QF_LRA|, respectively.  One can also mix the two with |QF_LIRA|.  Note
+that, according to the SMT-LIB standard, when using |QF_LIRA|, integers and
+reals should not be mixed in the same linear sum, but most solvers (including
+|cvcv| and |ziii|) are more permissive and do allow mixed terms.
+:ref:`Example 1 <Example 1>` is a good example of a simple |QF_LIA| problem.
+
+  _`Exercise 5`. Repeat :ref:`Exercise 1 <Exercise 1>`, but change the logic to
+  |QF_LRA|, change the types of the variables from :smt:`Int` to :smt:`Real`,
+  and append :smt:`.0` to each numeric constant.  Now, what output does the
+  solver give?
+
+  :ref:`Solution to Exercise 5 <Solution to Exercise 5>`
+
+Nonlinear arithmetic
+^^^^^^^^^^^^^^^^^^^^
+
+Moving up the expressiveness hierarchy, we next have logics for quantifier-free
+*nonlinear arithmetic*.  In these logics, arbitrary polynomials are allowed in
+constraints.  The logic |QF_NRA| is for nonlinear arithmetic over the
+reals, which is decidable but with doubly exponential
+complexity [R2]_.  On the other hand, the same
+logic over integers, |QF_NIA|, is undecidable.  |cvcv| implements a decision
+procedure for |QF_NRA| based on a combination of heuristic pruning and
+cylindrical algebraic coverings [R29]_.  |cvcv| and
+other tools implement incomplete heuristic procedures for |QF_NIA|.
+
+  _`Example 7`. Find a solution for :math:`x^2y + yz + 2xyz + 4xy + 8xz + 16 = 0`.
+
+.. api-examples::
+   <examples>/qfnra.smt2
+   <examples>/qfnra.py
