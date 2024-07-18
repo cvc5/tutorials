@@ -32,7 +32,9 @@ restrictions on the interpretation (besides the declared arity and rank).  The
 following example illustrates the use of uninterpreted symbols as well as the
 :python:`And` and :python:`Distinct` operators.
 
-  _`Example 4`. Let :math:`f` be a unary function from :math:`U` to :math:`U`,
+.. _Example 4:
+
+  Example 4. Let :math:`f` be a unary function from :math:`U` to :math:`U`,
   for some set :math:`U`. Check that, whatever the meaning of :math:`f`, if
   :math:`f(f(f(x)))=x` and :math:`f(f(f(f(f(x)))))=x`, then :math:`f(x)=x`.
 
@@ -48,7 +50,9 @@ Now, we present a simple example that illustrates the :smt:`ite` operator.  It
 also shows that in Python, we can use :python:`!=` instead of
 :python:`Distinct` to assert that two terms are distinct.
 
-  _`Example 5`. Suppose we know that :math:`x` is either equal to :math:`y` or
+.. _Example 5:
+
+  Example 5. Suppose we know that :math:`x` is either equal to :math:`y` or
   :math:`z`, depending on the value of the Boolean :math:`b`.  Suppose we
   further know that :math:`w` is equal to one of :math:`y` or :math:`z`.  Does
   it follow that :math:`x` equals :math:`w`?
@@ -77,7 +81,9 @@ elements, named :smt:`@U_0` and :smt:`@U_1`.  The model then specifies that
 :smt:`x` and :smt:`y` have one value and :smt:`z` and :smt:`w` have the other,
 so :smt:`x` is not equal to :smt:`w`.
 
-  _`Exercise 3`. Modify `Example 4`_ to make it satisfiable and `Example 5`_ to make it unsatisfiable.
+.. _Exercise 3:
+
+  Exercise 3. Modify :ref:`Example 4 <Example 4>` to make it satisfiable and :ref:`Example 5 <Example 5>` to make it unsatisfiable.
 
   :ref:`Solution to Exercise 3 <Solution to Exercise 3>`
   

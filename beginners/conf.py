@@ -5,6 +5,8 @@
 
 import sys
 
+# TODO: don't hard-code path
+
 # add path to enable extensions
 sys.path.insert(0, '/Users/clarkbarrett/github/tutorials/beginners/ext/')
 

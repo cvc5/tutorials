@@ -122,7 +122,9 @@ is |X|. Constant |z| names the value we must multiply by 2 to get |x|.  There is
 solution because an even number does not have a multiplicative inverse in
 machine arithmetic (i.e., when doing arithmetic modulo a power of 2).
 
-  _`Exercise 2`. Find the multiplicative inverse of 5 (mod :math:`2^8`).
+.. _Exercise 2:
+
+  Exercise 2. Find the multiplicative inverse of 5 (mod :math:`2^8`).
 
   :ref:`Solution to Exercise 2 <Solution to Exercise 2>`
 
