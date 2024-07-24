@@ -120,8 +120,6 @@ The output is as follows.
    <solutions>/Exercise5.out.smt2
    <solutions>/Exercise5.out.py
 
-.. TODO
-
 .. _Solution to Exercise 6:
 
 Solution to :ref:`Exercise 6 <Exercise 6>`
@@ -148,6 +146,8 @@ Solution to :ref:`Exercise 8 <Exercise 8>`
 Solution to :ref:`Exercise 9 <Exercise 9>`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. TODO
+
 .. _Solution to Exercise 10:
 
 Solution to :ref:`Exercise 10 <Exercise 10>`
@@ -170,8 +170,6 @@ The output is as follows.
 
 Thus, the answer is that four concatentations are required.
 
-.. TODO
-
 .. _Solution to Exercise 11:
 
 Solution to :ref:`Exercise 11 <Exercise 11>`
@@ -184,7 +182,15 @@ Solution to :ref:`Exercise 11 <Exercise 11>`
 Solution to :ref:`Exercise 12 <Exercise 12>`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. TODO
+.. api-examples::
+   <solutions>/Exercise12.smt2
+   <solutions>/Exercise12.py
+
+The output is as follows.
+
+.. api-examples::
+   <solutions>/Exercise12.out.smt2
+   <solutions>/Exercise12.out.py
 
 .. _Solution to Exercise 13:
 
