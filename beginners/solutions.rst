@@ -148,12 +148,27 @@ Solution to :ref:`Exercise 8 <Exercise 8>`
 Solution to :ref:`Exercise 9 <Exercise 9>`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. TODO
-
 .. _Solution to Exercise 10:
 
 Solution to :ref:`Exercise 10 <Exercise 10>`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+We can change the solution to :ref:`Example 12 <Example 12>` to enforce that :smt:`x1` and
+:smt:`x2` have length 1.  With this change, the problem becomes unsatisfiable.
+Thus, to obtain the solution, we add one more layer of concatenations, as shown
+below.
+
+.. api-examples::
+   <solutions>/Exercise10.smt2
+   <solutions>/Exercise10.py
+
+The output is as follows.
+
+.. api-examples::
+   <solutions>/Exercise10.out.smt2
+   <solutions>/Exercise10.out.py
+
+Thus, the answer is that four concatentations are required.
 
 .. TODO
 
