@@ -105,12 +105,20 @@ The output from |cvcv| is as follows.
    <solutions>/Exercise4.out.smt2
    <solutions>/Exercise4.out.py
 
-.. TODO
-
 .. _Solution to Exercise 5:
 
 Solution to :ref:`Exercise 5 <Exercise 5>`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. api-examples::
+   <solutions>/Exercise5.smt2
+   <solutions>/Exercise5.py
+
+The output is as follows.
+
+.. api-examples::
+   <solutions>/Exercise5.out.smt2
+   <solutions>/Exercise5.out.py
 
 .. TODO
 
