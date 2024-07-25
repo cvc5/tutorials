@@ -124,8 +124,29 @@ The output is as follows.
 
 Solution to :ref:`Exercise 6 <Exercise 6>`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The changes are pretty simple. 
+In :ref:`Example 4 <Example 4>`, we proved
+that if the elements in indexes :smt:`i` and :smt:`j`
+are the same, then the arrays are the same.
+The way to do that was to assert that the elements are the same
+while the arrays are different, and expect to get an |unsat|
+answer, which indeed we got.
 
-.. TODO
+Now, we want to show that if the elements are different, then 
+so are the arrays. Hence, we would like to assert that
+the elements are different while the arrays are the same.
+Hence, we interchange the equality and dis-equality in the last
+two assertions.
+
+.. api-examples::
+   <solutions>/Exercise6.smt2
+   <solutions>/Exercise6.py
+
+The output is as follows.
+
+.. api-examples::
+   <solutions>/Exercise6.out.smt2
+   <solutions>/Exercise6.out.py
 
 .. _Solution to Exercise 7:
 
@@ -174,8 +195,24 @@ Thus, the answer is that four concatentations are required.
 
 Solution to :ref:`Exercise 11 <Exercise 11>`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The most natural solution to this exercise, seems to be via to use the :smt:`seq.prefixof` operator in SMT-LIB,
+or :python:`PrefixOf` in python.
+However, this expresses the property of being a prefix,
+not a proper prefix.
+Hence, we also need to add for each pair of variables
+that they are distinct.
+As a consequence, the result is indeed |unsat|.
 
-.. TODO
+.. api-examples::
+   <solutions>/Exercise11.smt2
+   <solutions>/Exercise11.py
+
+The output is as follows.
+
+.. api-examples::
+   <solutions>/Exercise11.out.smt2
+   <solutions>/Exercise11.out.py
+
 
 .. _Solution to Exercise 12:
 
@@ -196,6 +233,17 @@ The output is as follows.
 
 Solution to :ref:`Exercise 13 <Exercise 13>`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Set difference does not distribute over intersection.
+The solver is able to find a counterexample for this property.
 
-.. TODO
+.. api-examples::
+   <solutions>/Exercise13.smt2
+   <solutions>/Exercise13.py
+
+The output is as follows.
+
+.. api-examples::
+   <solutions>/Exercise13.out.smt2
+   <solutions>/Exercise13.out.py
+
 
