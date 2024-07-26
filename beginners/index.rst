@@ -28,12 +28,4 @@ SMT-LIB language, using either the cvc5 or the z3 SMT solver.
    references   
    solutions
 
-.. TODO: Add index and search
-
- Indices and tables
- ==================
-
- * :ref:`genindex`
- * :ref:`search`
-
 .. TODO: Add analytics
