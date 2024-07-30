@@ -4,11 +4,11 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
 import sys
-
-# TODO: don't hard-code path
+import pathlib
 
 # add path to enable extensions
-sys.path.insert(0, '/Users/clarkbarrett/github/tutorials/beginners/ext/')
+basedir=pathlib.Path()
+sys.path.insert(0, str(basedir.joinpath('ext').resolve()))
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
@@ -35,7 +35,7 @@ html_theme = 'sphinx_rtd_theme'
 html_theme_options = {
     'navigation_depth': 5
 }
-html_static_path = ['/Users/clarkbarrett/github/tutorials/beginners/_static/']
+html_static_path = [str(basedir.joinpath('_static').resolve())]
 html_css_files = ['custom.css']
 html_show_sourcelink = False
 
