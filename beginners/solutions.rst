@@ -153,7 +153,15 @@ The output is as follows.
 Solution to :ref:`Exercise 7 <Exercise 7>`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. TODO
+.. api-examples::
+   <solutions>/Exercise7.smt2
+   <solutions>/Exercise7.py
+
+The output is as follows.
+
+.. api-examples::
+   <solutions>/Exercise7.out.smt2
+   <solutions>/Exercise7.out.py
 
 .. _Solution to Exercise 8:
 
@@ -167,7 +175,15 @@ Solution to :ref:`Exercise 8 <Exercise 8>`
 Solution to :ref:`Exercise 9 <Exercise 9>`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. TODO
+.. api-examples::
+   <solutions>/Exercise9.smt2
+   <solutions>/Exercise9.py
+
+The output is as follows.
+
+.. api-examples::
+   <solutions>/Exercise9.out.smt2
+   <solutions>/Exercise9.out.py
 
 .. _Solution to Exercise 10:
 
