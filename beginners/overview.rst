@@ -120,7 +120,12 @@ this example. The |bvmul| symbol represents bit-vector multiplication, and the
 notation |bvX| is the bit-vector constant whose value, in decimal notation,
 is |X|. Constant |z| names the value we must multiply by 2 to get |x|.  There is no
 solution because an even number does not have a multiplicative inverse in
-machine arithmetic (i.e., when doing arithmetic modulo a power of 2).
+machine arithmetic (i.e., when doing arithmetic modulo a power of 2).  The
+output of |cvcv| is shown below.
+
+.. api-examples::
+    <examples>/Example2.out.smt2
+    <examples>/Example2.out.py
 
 .. _Exercise 2:
 
@@ -161,14 +166,20 @@ for integers and bit-vectors). Next, we declare two functions, |Human| and
 SMT-LIB Boolean sort. A function returning a Boolean is also called a
 *predicate*. We then declare an uninterpreted constant called |Socrates| of
 sort |S|. Now, we are ready to encode the first fact, namely that all humans are
-mortal. To do so, we use the *universal quantifier*, |ForAll|. The assertion states
+mortal. To do so, we use the *universal quantifier* (:smt:`forall` in SMT-LIB,
+|ForAll| in Python). The assertion states
 that for every individual |x| of sort |S|, if the predicate |Human| holds for that
 individual, then the predicate |Mortal| also holds. The next assertion states
 that the |Human| predicate holds for |Socrates|. Finally, we want to see whether
 the fact that Socrates is mortal necessarily follows from the assumptions. To
 do this, we assert the negation of the statement and check for
 satisfiability. Running the example confirms that the result is unsatisfiable
-and thus, indeed, this statement is entailed.
+and thus, indeed, this statement is entailed.  The output of |cvcv| is shown
+below.
+
+.. api-examples::
+   <examples>/socrates.out.smt2
+   <examples>/socrates.out.py
 
 What we have presented so far should provide a good high-level idea of what is
 possible with SMT solvers. [#]_ We cover these ideas in more detail in the

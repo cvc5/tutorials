@@ -46,6 +46,12 @@ Solutions for this example are shown below.
 
 We can derive :math:`f(x) = x` from the first assertion by performing a series of
 substitutions, and thus the problem is unsatisfiable.
+
+.. api-examples::
+   <examples>/ffff.out.smt2
+   <examples>/ffff.out.py
+
+
 Now, we present a simple example that illustrates the :smt:`ite` operator.  It
 also shows that in Python, we can use :python:`!=` instead of
 :python:`Distinct` to assert that two terms are distinct.
@@ -63,15 +69,11 @@ Solutions are shown below.
    <examples>/xyzwite.smt2
    <examples>/xyzwite.py
 
-The Python output when using |cvcv| is as follows.
+The SMT-LIB and Python outputs when using |cvcv| are as follows.
 
-.. code-block:: python
-
-   b : True
-   w : (as @U_0 U)
-   x : (as @U_1 U)
-   y : (as @U_1 U)
-   z : (as @U_0 U)
+.. api-examples::
+   <examples>/xyzwite.out.smt2
+   <examples>/xyzwite.out.py
 
 The result tells us that it does *not* follow that :math:`x=w`.  The model
 gives us a *counterexample* to that claim.  Because the sort :smt:`U` is

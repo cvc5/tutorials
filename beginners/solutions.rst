@@ -168,7 +168,15 @@ The output is as follows.
 Solution to :ref:`Exercise 8 <Exercise 8>`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. TODO
+.. api-examples::
+   <solutions>/Exercise8.smt2
+   <solutions>/Exercise8.py
+
+The output is as follows.
+
+.. api-examples::
+   <solutions>/Exercise8.out.smt2
+   <solutions>/Exercise8.out.py
 
 .. _Solution to Exercise 9:
 
@@ -211,13 +219,13 @@ Thus, the answer is that four concatentations are required.
 
 Solution to :ref:`Exercise 11 <Exercise 11>`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-The most natural solution to this exercise, seems to be via to use the :smt:`seq.prefixof` operator in SMT-LIB,
-or :python:`PrefixOf` in python.
-However, this expresses the property of being a prefix,
+The most natural solution to this exercise seems to be to use the :smt:`seq.prefixof` operator in SMT-LIB
+(:python:`PrefixOf` in python).
+However, this operator only enforces the property of being a prefix,
 not a proper prefix.
 Hence, we also need to add for each pair of variables
 that they are distinct.
-As a consequence, the result is indeed |unsat|.
+The result is indeed |unsat| as expected.
 
 .. api-examples::
    <solutions>/Exercise11.smt2

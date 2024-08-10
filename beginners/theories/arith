@@ -53,6 +53,13 @@ time.
    <examples>/diff.smt2
    <examples>/diff.py
 
+The output is as follows.
+
+.. api-examples::
+   <examples>/diff.out.smt2
+   <examples>/diff.out.py
+
+
 ..
    
   _`Exercise 4`. What is the minimum amount of time that it will take to
@@ -98,3 +105,9 @@ other tools implement incomplete heuristic procedures for |QF_NIA|.
 .. api-examples::
    <examples>/qfnra.smt2
    <examples>/qfnra.py
+
+The output is as follows.
+
+.. api-examples::
+   <examples>/qfnra.out.smt2
+   <examples>/qfnra.out.py

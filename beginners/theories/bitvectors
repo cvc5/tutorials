@@ -44,6 +44,12 @@ easily check the equivalence of the absolute value computations.
    <examples>/branchless_abs.smt2
    <examples>/branchless_abs.py
 
+The output is as follows.
+
+.. api-examples::
+   <examples>/branchless_abs.out.smt2
+   <examples>/branchless_abs.out.py
+
 ..
 
   _`Exercise 7`. Show that the second and third branchless alternatives

@@ -26,6 +26,12 @@ and using nondeterministic choice to pick the inputs for each concatenation.
    <examples>/strings.smt2
    <examples>/strings.py
 
+The output is as follows:
+
+.. api-examples::
+   <examples>/strings.out.smt2
+   <examples>/strings.out.py
+
 ..
 
   _`Exercise 10`.  Use SMT to determine how many concatenations are needed to

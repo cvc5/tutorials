@@ -52,6 +52,13 @@ In the example below, we encode the above problem using the array theory.
    <examples>/arrays.smt2
    <examples>/arrays.py
 
+The output is as follows.
+
+.. api-examples::
+   <examples>/arrays.out.smt2
+   <examples>/arrays.out.py
+
+
 ..
 
   _`Exercise 6`.  Another property of :python:`swap` that we can prove is that

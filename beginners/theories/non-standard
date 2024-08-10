@@ -32,6 +32,12 @@ whenever the string theory is enabled (e.g., by using the logic name |QF_S| or
   <examples>/sequences.smt2
   <examples>/sequences.py
 
+The output is as follows.
+
+.. api-examples::
+  <examples>/sequences.out.smt2
+  <examples>/sequences.out.py
+
 ..
 
   _`Exercise 11`. Show that it's not possible to have sequences :smt:`x`,
@@ -56,12 +62,19 @@ theory is not supported by other SMT solvers.
   their sum and product are both equal to the multiplicative identity in the
   field.
 
-Running this example requires a GPL build of |cvcv|, as explained in :ref:`introduction`.
+Running this example requires a GPL build of |cvcv|, as explained in the :ref:`introduction`.
 
 .. api-examples::
 
    <examples>/fields.smt2
    <examples>/fields.py
+
+The output is as follows.
+
+.. api-examples::
+
+   <examples>/fields.out.smt2
+   <examples>/fields.out.py
 
 ..
 
@@ -86,6 +99,12 @@ the time of writing, this theory is not supported by other SMT solvers.
 .. api-examples::
   <examples>/sets.smt2
   <examples>/sets.py
+
+As, expected, the result is |unsat|
+
+.. api-examples::
+  <examples>/sets.out.smt2
+  <examples>/sets.out.py
 
 ..
 

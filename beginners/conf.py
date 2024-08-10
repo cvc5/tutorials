@@ -20,8 +20,7 @@ author = 'Clark Barrett, Cesare Tinelli, Haniel Barbosa, Aina Niemetz, Mathias P
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = ['sphinx_tabs.tabs','examples','sphinx_copybutton',
-              'sphinxcontrib.googleanalytics']
+extensions = ['sphinx_tabs.tabs','examples','sphinx_copybutton','sphinxcontrib.googleanalytics']
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 

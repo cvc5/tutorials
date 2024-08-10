@@ -26,14 +26,11 @@ arithmetic [R11]_.  The quantifier-free logic name is |QF_FP|.
    <examples>/fp.smt2
    <examples>/fp.py
 
-The Python output from |cvcv| is as follows.
+The output from |cvcv| is as follows.
 
-.. code-block:: python
-
-   [a = -1.3333333730697632*(2**-1), b = -1.9999998807907104*(2**-1),
-    c = -1.9999998807907104*(2**-1), rm = RTP()]
-   fpFMA(rm, a, b, c) = -1.333333134651184*(2**-2)
-   fpAdd(rm, fpMul(rm, a, b),c) = -1.3333330154418945*(2**-2)
+.. api-examples::
+   <examples>/fp.out.smt2
+   <examples>/fp.out.py
 
 ..
 

@@ -1,0 +1,1 @@
+[i1 = "a", i2 = "bb", i3 = "a", i4 = "abb", i5 = "abb", i6 = "aabb", p1 = True, p10 = False, p11 = False, p12 = False, p2 = False, p3 = True, p4 = True, p5 = False, p6 = False, p7 = False, p8 = False, p9 = True, x1 = "a", x2 = "bb", x3 = "abb", x4 = "aabb", x5 = "abbaabb"]

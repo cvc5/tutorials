@@ -22,11 +22,11 @@ more specific logic is not available.
    <examples>/datatypes.smt2
    <examples>/datatypes.py
 
-The Python output from |cvcv| is:
+The output from |cvcv| is:
 
-.. code-block:: python
-                
-   [ x = node(101, nil, node(0, nil, nil)), y = node(0, node(0, nil, node(0, nil, nil)), nil)]
+.. api-examples::
+   <examples>/datatypes.out.smt2
+   <examples>/datatypes.out.py
 
 ..
 

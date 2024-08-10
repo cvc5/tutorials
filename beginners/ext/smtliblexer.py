@@ -97,6 +97,7 @@ class SmtLibLexer(RegexLexer):
             (r'[0-9]+', token.Number),
             (r'#x[0-9a-fA-F]+', token.Number),
             (r'#b[01]+', token.Number),
+            (r'#f[0-9]+m[0-9]+', token.Number),
             # bv constant (see BV theory specification)
             (r'bv[0-9]+', token.Number),
             # string constant (including escaped "", see lexicon)

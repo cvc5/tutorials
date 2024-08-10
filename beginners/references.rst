@@ -21,8 +21,7 @@ References
         (TACAS ’22). Lecture Notes in Computer Science, vol. 13243,
         pp. 415–442. Springer (Apr
         2022). https://doi.org/10.1007/978-3-030-99524-9_24,
-        http://theory.stanford.edu/~barrett/pubs/BBB+22.pdf, Best SCP Tool
-        Paper Award.
+        http://theory.stanford.edu/~barrett/pubs/BBB+22.pdf.
         
 .. [R4] Barbosa, H., Barrett, C.W., Cook, B., Dutertre, B., Kremer, G.,
         Lachnitt, H., Niemetz, A., Nötzli, A., Ozdemir, A., Preiner, M.,
@@ -101,8 +100,8 @@ References
          Notes in Computer Science, vol. 4121, pp. 170–183. Springer
          (2006). https://doi.org/10.1007/11814948_19
          
-.. [R18] De Moura, L., Bjørner, N.: Satisfiability modulo theories:
-         introduction and ap- plications. Commun. ACM 54(9), 69–77 (sep
+.. [R18] de Moura, L., Bjørner, N.: Satisfiability modulo theories:
+         introduction and applications. Commun. ACM 54(9), 69–77 (sep
          2011). https://doi.org/10.1145/1995376.1995394
          
 .. [R19] Dutertre, B.: Yices 2.2. In: Biere, A., Bloem, R. (eds.) CAV
@@ -110,7 +109,8 @@ References
          pp. 737–744. Springer
          (2014). https://doi.org/10.1007/978-3-319-08867-9_49
          
-.. [R20] Dutertre,B.,deMoura,L.M.:Afastlinear-arithmeticsolverforDPLL(T).In:Ball,
+.. [R20] Dutertre, B., de Moura, L.M.:A fast linear-arithmetic solver for
+         DPLL(T). In: Ball,
          T., Jones, R.B. (eds.) Computer Aided Verification, 18th International
          Conference, CAV 2006, Seattle, WA, USA, August 17-20, 2006,
          Proceedings. Lecture Notes in Computer Science, vol. 4144,
@@ -127,7 +127,7 @@ References
          (2007). https://doi.org/10.1007/978-3-540-73368-3_52
          
 .. [R23] Ge, Y., de Moura, L.M.: Complete instantiation for quantified formulas
-         in sat- isfiabiliby modulo theories. In: Bouajjani, A.,
+         in satisfiabiliby modulo theories. In: Bouajjani, A.,
          Maler, O. (eds.) Computer Aided Verification, 21st International
          Conference, CAV 2009, Grenoble, France, June 26 - July
          2, 2009. Proceedings. Lecture Notes in Computer Science, vol. 5643,
@@ -233,17 +233,17 @@ References
          (2017). https://doi.org/10.1007/s10703-017-0290-y
          
 .. [R40] Reynolds, A., Tinelli, C., de Moura, L.M.: Finding conflicting
-         instances of quan- tified formulas in SMT. In: Formal Methods in
+         instances of quantified formulas in SMT. In: Formal Methods in
          Computer-Aided Design, FMCAD 2014, Lausanne, Switzerland, October
          21-24, 2014. pp. 195–202. IEEE
          (2014). https://doi.org/10.1109/FMCAD.2014.6987613
                   
 .. [R41] Roselli, S.F., Bengtsson, K., Åkesson, K.: SMT solvers for job-shop
          scheduling problems: Models comparison and performance evaluation. In:
-         14th IEEE Interna- tional Conference on Automation Science and
+         14th IEEE International Conference on Automation Science and
          Engineering, CASE 2018, Munich, Germany, August
          20-24, 2018. pp. 547–552. IEEE
          (2018). https://doi.org/10.1109/COASE.2018.8560344
          
 .. [R42] Turing, A.M., et al.: On computable numbers, with an application to
-         the entschei- dungsproblem. Journal of Math 58(345-363), 5 (1936)
+         the Entscheidungsproblem. Journal of Math 58(345-363), 5 (1936).
