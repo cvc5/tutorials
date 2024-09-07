@@ -31,7 +31,8 @@ as, :math:`+`, :math:`*`, :math:`\mathsf{log}`, :math:`\mathsf{mother}`,
 :math:`\mathsf{married}`) which denote total relations over the domains.  A
 signature also specifies the *arity* of each function symbol :math:`f`, which
 is the number of inputs :math:`f` takes, as well as its *rank*, which consists
-of the sort of :math:`f`'s inputs and of :math:`f`'s output. [#]_  We say that
+of the sort of :math:`f`'s inputs and of :math:`f`'s output.\
+[#]_  We say that
 :math:`f` has arity :math:`n` and rank :math:`\sigma_1\cdots\sigma_n\sigma` in
 a signature |sig| if :math:`f` takes :math:`n` inputs of respective sorts
 :math:`\sigma_1, \ldots, \sigma_n` and returns an output of sort |sor|.  A

@@ -182,7 +182,8 @@ below.
    <examples>/socrates.out.py
 
 What we have presented so far should provide a good high-level idea of what is
-possible with SMT solvers. [#]_ We cover these ideas in more detail in the
+possible with SMT solvers.\
+[#]_ We cover these ideas in more detail in the
 following. In :ref:`formal-foundations`, we briefly describe the formal foundations for
 SMT. Next, in :ref:`smt-theories`, we catalog the different theories supported by SMT
 solvers and provide examples of how to use them. We cover the different outputs

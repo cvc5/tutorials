@@ -50,7 +50,8 @@ A. To use a Python API for SMT, first create a virtual environment.
    |cvcv| is distributed under the BSD 3-clause license. Some features, however,
    such as its finite field solver (see :ref:`finite-fields`), are only available in an
    extended version of |cvcv| distributed under the GNU General Public License
-   (GPL). [#]_
+   (GPL).\
+   [#]_
    Since GPL is a problem for some users, the GPL version is not built
    or distributed by default. To install the GPL version of |cvcv|, use:
 

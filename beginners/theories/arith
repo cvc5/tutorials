@@ -47,7 +47,8 @@ To solve the problem, we create integer variables for the start times of each
 task within each job.  We assert that the start times are non-negative, each
 task within each job doesn't start until the previous task finishes, and tasks
 on each machine don't overlap.  Finally, we check that each task finishes on
-time.
+time.\
+[#]_
 
 .. api-examples::
    <examples>/diff.smt2
@@ -63,10 +64,14 @@ The output is as follows.
 ..
    
   _`Exercise 4`. What is the minimum amount of time that it will take to
-  complete all of the jobs in `Example 6`_?
+  complete all of the jobs in `Example 6`_?  What is the minimum if we
+  change the requirements so that Job 2 only requires machine 2 for 15,
+  and all other requirements remain the same?
 
   :ref:`Solution to Exercise 4 <Solution to Exercise 4>`
-  
+
+.. [#] The code for `Example 6`_ in the published (print) version of this tutorial is incorrect.  It has been corrected in the code shown above.
+
 Linear Arithmetic
 ^^^^^^^^^^^^^^^^^
 

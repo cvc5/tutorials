@@ -14,41 +14,18 @@
 (assert (and (or (>= (- j22 j11) 10) (>= (- j11 j22) 5))
              (or (>= (- j31 j11) 10) (>= (- j11 j31) 5))
              (or (>= (- j31 j22) 5) (>= (- j22 j31) 5))))
-(assert (and (or (>= (- j21 j12) 5) (>= (- j12 j21) 5))
+(assert (and (or (>= (- j21 j12) 5) (>= (- j12 j21) 20))
              (or (>= (- j32 j12) 5) (>= (- j12 j32) 5))
-             (or (>= (- j32 j21) 5) (>= (- j21 j32) 5))))
-(assert (and (<= j12 25) (<= j22 25) (<= j32 25)))
+             (or (>= (- j32 j21) 20) (>= (- j21 j32) 5))))
 
 (define-fun max3 ((i Int) (j Int) (k Int)) Int
                  (ite (< i j) (ite (< j k) k j) (ite (< i k) k i)))
 
+(push)
+(assert (<= (max3 j12 j22 j32) 25))
 (check-sat)
 (get-model)
-
-(push)
-(assert (< (max3 j12 j22 j32) 25))
-(check-sat)
 (pop)
 
-(push)
-(assert (< (max3 j12 j22 j32) 24))
-(check-sat)
-(pop)
-
-(push)
-(assert (< (max3 j12 j22 j32) 23))
-(check-sat)
-(pop)
-
-(push)
-(assert (< (max3 j12 j22 j32) 22))
-(check-sat)
-(pop)
-
-(push)
-(assert (< (max3 j12 j22 j32) 21))
-(check-sat)
-(pop)
-
-(assert (< (max3 j12 j22 j32) 20))
+(assert (<= (max3 j12 j22 j32) 24))
 (check-sat)

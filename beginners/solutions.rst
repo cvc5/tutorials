@@ -93,18 +93,33 @@ enables the commands :smt:`push` and :smt:`pop`.  These commands allow us to
 temporarily add one or more assertions, check for satisfiability, and then 
 return to the previous state.  The Python example demonstrates the power of
 having the solver embedded in a general-purpose programming language: we can
-use a loop to iterate until no better solution is found.
+use a loop to iterate until no better solution is found.  We first show that
+for the original problem, 30 minutes is the best possible time.
 
 .. api-examples::
-   <solutions>/Exercise4.smt2
-   <solutions>/Exercise4.py
+   <solutions>/Exercise4a.smt2
+   <solutions>/Exercise4a.py
 
 The output from |cvcv| is as follows.
 
 .. api-examples::
-   <solutions>/Exercise4.out.smt2
-   <solutions>/Exercise4.out.py
+   <solutions>/Exercise4a.out.smt2
+   <solutions>/Exercise4a.out.py
 
+We now modify the example so that Job 2 only uses machine 2 for 15 minutes.
+The best solution is now 25 minutes.
+
+.. api-examples::
+   <solutions>/Exercise4b.smt2
+   <solutions>/Exercise4b.py
+
+The output from |cvcv| is as follows.
+
+.. api-examples::
+   <solutions>/Exercise4b.out.smt2
+   <solutions>/Exercise4b.out.py
+
+   
 .. _Solution to Exercise 5:
 
 Solution to :ref:`Exercise 5 <Exercise 5>`

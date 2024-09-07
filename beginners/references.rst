@@ -183,8 +183,11 @@ References
          vol. 4963, pp. 337–340. Springer
          (2008). https://doi.org/10.1007/978-3-540-78800-3_24
          
-.. [R33] Niemetz, A., Preiner, M.: Bitwuzla at the SMT-COMP 2020. CoRR
-         abs/2006.01621 (2020), https://arxiv.org/abs/2006.01621
+.. [R33] Niemetz, A., Preiner, M.: Bitwuzla. In: Enea, C., Lal, A. (eds.)
+         Computer Aided Verification - 35th International Conference, CAV 2023,
+         Paris, France, July 17-22, 2023, Proceedings, Part II.  Lecture Notes
+         in Computer Science, vol. 13965, pp. 3-17. Springer (2023).
+         https://doi.org/10.1007/978-3-031-37703-7_1
          
 .. [R34] Niemetz, A., Preiner, M., Reynolds, A., Barrett, C.W., Tinelli, C.:
          Solving quantified bit-vectors using invertibility conditions. In:
