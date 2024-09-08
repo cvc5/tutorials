@@ -130,7 +130,7 @@ it may be more efficient to give a more precise logic name.  When mixing
 theories, |cvcv| allows any logic name that follows the following rules.
 First, the logic name must start with the prefix :smt:`QF_` if the intent is to
 limit reasoning to quantifier-free formulas.  The rest of the logic name can
-include any of the following components, in any order: :math:`(i)` :smt:`A` for
+include any of the following components: :math:`(i)` :smt:`A` for
 arrays; :math:`(ii)` :smt:`UF` for uninterpreted functions; :math:`(iii)`
 :smt:`BV` for bit-vectors; (iv) :smt:`FP` for floating-point numbers;
 :math:`(v)` :smt:`DT` for datatypes; (vi) :smt:`S` for strings and sequences;
