@@ -1,6 +1,5 @@
 from cvc5.pythonic import *
-F = FiniteFieldSort(13)
-x, y = FiniteFieldElems("x y", F)
+x, y = FiniteFieldElems("x y", 13)
 s = SolverFor("QF_FF")
 s.add(x + y == 1)
 s.add(x * y == 1)
