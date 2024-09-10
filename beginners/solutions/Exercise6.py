@@ -8,10 +8,10 @@ a_in, a_out = Consts("a_in, a_out", array)
 
 s = SolverFor('QF_AX')
 
-s.add(tmp == (Select(a_in, i)))
-s.add(a_out == (Store(Store(a_in, i, Select(a_in, j)), 
-    j, tmp)))
-s.add((Select(a_in, i)) != (Select(a_in, j)))
+s.add(tmp == a_in[i])
+s.add(a_out == Store(Store(a_in, i, a_in[j]), 
+    j, tmp))
+s.add(a_in[i] != a_in[j])
 s.add(a_in == a_out)
 
 print(s.check())
