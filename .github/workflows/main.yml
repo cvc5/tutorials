@@ -1,0 +1,21 @@
+on: [push, pull_request]
+
+name: Build and Deploy
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Install requirements
+      run: |
+        pip install -r beginners/requirements.txt
+
+    - name: Build GitHub pages
+      run: |
+        cd beginners
+        make github
+
+    
