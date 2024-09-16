@@ -28,6 +28,13 @@ jobs:
         rm -r website/tutorials/beginners
         cp -r beginners/_build/html website/tutorials/beginners
         cd website/
+
         git add tutorials/beginners
-        git commit -m "Deploy tutorials from source repo"
-        git push https://$GITHUB_ACTOR:${{ secrets.CVC5_WEBSITE_TOKEN }}@github.com/cvc5/cvc5.github.io.git main
+
+        # Check if there is anything to commit
+        if ! git diff --staged --quiet; then
+            git commit -m "Deploy tutorials from source repo"
+            git push https://$GITHUB_ACTOR:${{ secrets.CVC5_WEBSITE_TOKEN }}@github.com/cvc5/cvc5.github.io.git main
+        else
+            echo "No changes to commit"
+        fi
