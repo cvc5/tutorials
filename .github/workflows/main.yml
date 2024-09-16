@@ -1,0 +1,38 @@
+on: [push, pull_request]
+
+name: Build and Deploy
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Install requirements
+      run: |
+        pip install -r beginners/requirements.txt
+
+    - name: Build GitHub pages
+      run: |
+        cd beginners
+        make github
+
+    - name: Deploy tutorial on the cvc5 website
+      if: (github.repository == 'cvc5/tutorials') && (github.ref == 'refs/heads/main')
+      env:
+        SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+      run: |
+        ssh-agent -a $SSH_AUTH_SOCK > /dev/null
+        ssh-add - <<< "${{ secrets.CVC5_WEBSITE_TOKEN }}"
+
+        git config --global user.email "cvc5-bot@users.noreply.github.com"
+        git config --global user.name "cvc5-bot"
+        git clone git@github.com:cvc5/cvc5.github.io.git website/
+
+        rm -r website/tutorials/beginners
+        cp -r beginners/_build/html website/tutorials/beginners
+        cd website/
+        git add tutorials/beginners
+        git commit -m "Deploy tutorials from source repo"
+        git push
